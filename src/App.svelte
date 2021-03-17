@@ -73,7 +73,7 @@
 		line-height:1.25;
 		margin: 0 1rem;
 		text-align:right;
-		padding:.1rem 1.5rem .1rem 0;
+		padding:.1rem 1rem .1rem 0;
 		border-right:1px solid var(--primary);
 		display: flex;
     	flex-direction: column;
