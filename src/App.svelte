@@ -40,7 +40,7 @@
 </script>
 
 <header>
-	<h1>Frontend<br> Design & Development</h1>
+	<h1><strong>Frontend</strong>Design & Development</h1>
 	<img src="/assets/images/hogeschool-van-amsterdam.svg" alt="Hogeschool van Amsterdam">
 </header>
 
@@ -75,6 +75,14 @@
 		text-align:right;
 		padding:.1rem 1.5rem .1rem 0;
 		border-right:1px solid var(--primary);
+		display: flex;
+    	flex-direction: column;
+   		align-items: flex-end;
+	}
+	h1 strong {
+		font-weight: normal;
+		position: relative;
+		display:flex;
 	}
 	
 	main {
