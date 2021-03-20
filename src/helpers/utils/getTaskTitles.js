@@ -1,7 +1,7 @@
 // Function that returns an array of objects with titles and clients without duplicates.
-export function getTaskTitles(displayTaskList) {
+export function getTaskTitles(taskList) {
     let titles = []
-    displayTaskList.forEach(task => titles.push({ 
+    taskList.forEach(task => titles.push({ 
         "title": task.title,
         "client": task.client
     }))

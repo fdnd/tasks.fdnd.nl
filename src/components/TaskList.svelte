@@ -5,10 +5,11 @@
 	import TaskSearch from "./TaskSearch.svelte"
 	import SprintTasksContainer from "./SprintTasksContainer.svelte"
 
-  export let semesterTasks
-  export let sprint
+	import { tasks } from '../stores/tasks.js';
+
+  	export let semesterTasks
+  	export let sprint
 	export let semester
-	export let displayTaskList
 
   let searchTerm = ""
 	let taskTitles = []
@@ -17,7 +18,7 @@
   let finalTasks = {tasks: [], dummy: {"title": "Task", "taskList": []}}
 	let dummyData = {
 		"client": "FDND",
-		"semesterName": displayTaskList.filter(task => task.semester === semester)[0].semesterName,
+		"semesterName": $tasks.filter(task => task.semester === semester)[0].semesterName,
 		"sprintName": sprint,
 		"support-level": 1,
 		"tags": ["semantiek", "responsive design", "ui-interacties", "html", "css", "javascript"],

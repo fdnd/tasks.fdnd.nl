@@ -5,10 +5,10 @@
   	import { getSemesterTitles } from "./helpers/utils/getSemesterTitles.js"
   
 	import FilterSemester from "./components/FilterSemester.svelte"	
+	import { tasks } from './stores/tasks.js';
 	
 
 	let taskList = [] // Original copy of the data.
-	let displayTaskList = [] // Copy of the data that is used to render the tasks.
 	let searchTaskList = [] // Copy of the data to be used in the search
 	let semesters = []
   
@@ -29,13 +29,12 @@
 		// Sort semesters in numerical order
 		semesters.sort((a, b) => a-b)
 		
-		// Copy the array of tasks, complete with semester and sprint name to an array that is to be displayed.
-		displayTaskList = searchTaskList
-
 		/*
 		Add difficulty property to the taskList
 		*/
-		addDifficulty(displayTaskList)
+		const taskies = addDifficulty(searchTaskList)
+		
+		$tasks = taskies
 	})
 </script>
 
@@ -46,11 +45,12 @@
 
 <main>
 	<h2>Leertaken</h2>
-	<FilterSemester bind:semesters bind:displayTaskList />
+	<FilterSemester bind:semesters />
 </main>
 
 <footer>
 	<img src="/assets/images/hvapayoff.svg" alt="Hogeschool van Amsterdam">
+
 </footer>
 
 <style>
