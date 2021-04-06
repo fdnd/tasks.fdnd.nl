@@ -5,7 +5,7 @@
 	import TaskSearch from "./TaskSearch.svelte"
 	import SprintTasksContainer from "./SprintTasksContainer.svelte"
 
-	import { tasks } from '../stores/tasks.js';
+	import { tasks } from "../stores/tasks.js"
 
   	export let semesterTasks
   	export let sprint
