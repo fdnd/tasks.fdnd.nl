@@ -1,8 +1,9 @@
 <script>
 	import Sprint from "../components/Sprint.svelte"
+	import { tasks } from '../stores/tasks.js';
 
 	export let semester
-	export let displayTaskList
+
 
 	let sprintTitles = []
     let semesterTasks = []
@@ -31,11 +32,11 @@
 	}
 
 	// Fire function that creates a list of sprints to be rendered
-	loadSprints(semester, displayTaskList)
+	loadSprints(semester, $tasks)
 </script>
 
 {#each sprintTitles as sprint}
-	<Sprint bind:semester bind:sprint bind:semesterTasks bind:displayTaskList />
+	<Sprint bind:semester bind:sprint bind:semesterTasks />
 {/each}
 
 
