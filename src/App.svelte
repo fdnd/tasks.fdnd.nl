@@ -54,11 +54,11 @@
 		<h2>FDND websites</h2>
 
 		<ul>
-		<li><a href="https://fdnd.nl">FDND.nl</a></li>
-		<li><a href="https://programma.fdnd.nl/">Programma</a></li>
-		<li><a href="https://partners.fdnd.nl">Partners</a></li>
-		<li><a href="https://tasks.fdnd.nl">Leertaken</a></li>
-		<li><a href="https://styleguide.fdnd.nl">Styleguide</a></li>
+			<li><a href="https://fdnd.nl">FDND.nl</a></li>
+			<li><a href="https://programma.fdnd.nl/">Programma</a></li>
+			<li><a href="https://partners.fdnd.nl">Partners</a></li>
+			<li><a href="https://tasks.fdnd.nl">Leertaken</a></li>
+			<li><a href="https://styleguide.fdnd.nl">Styleguide</a></li>
 		</ul>
 	</nav>
 
