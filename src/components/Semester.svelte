@@ -1,19 +1,21 @@
 <script>
     import FilterSprint from "./FilterSprint.svelte"
+    import { tasks } from '../stores/tasks.js';
 
     export let semester
-	export let displayTaskList
-
 
     // Make sure all tasks have a semesterName value.
-    displayTaskList = displayTaskList.filter(task => {
-		return task.semesterName !== undefined
-	})
+    const filteredTasks = $tasks.filter(task => {
+	    return task.semesterName !== undefined
+    })
+
+    $tasks = filteredTasks
+
 </script>
 
 <section>
-    <h2>Semester {semester}: {displayTaskList.filter(task => task.semester === semester)[0].semesterName}</h2>
-    <FilterSprint bind:semester bind:displayTaskList/>
+    <h2>Semester {semester}: {$tasks.filter(task => task.semester === semester)[0].semesterName}</h2>
+    <FilterSprint bind:semester />
 </section>
 
 <style>

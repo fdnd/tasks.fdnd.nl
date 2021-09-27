@@ -15,11 +15,11 @@ const graphqlWithAuth = graphql.defaults({
 
 graphqlWithAuth(`{
   organization(login: "fdnd-task") {
-    repositories(first: 100, orderBy: {field: NAME, direction: ASC}) {
+    repositories(privacy:PUBLIC, first: 100, orderBy: {field: NAME, direction: ASC}) {
       nodes {
         name
         url
-        description: object(expression: "master:.description") {
+        description: object(expression: "main:.description") {
           ... on Blob {
             text
           }
@@ -40,6 +40,7 @@ graphqlWithAuth(`{
 }`)
   .then(result => {
     result.organization.repositories.nodes.map(task => {
+      console.log(task.name)
       taskList.push({
         ...fm(task.description.text).attributes,
         repository: task.name,
