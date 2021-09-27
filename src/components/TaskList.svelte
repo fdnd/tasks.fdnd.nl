@@ -11,11 +11,11 @@
   	export let sprint
 	export let semester
 
-  	let searchTerm = ""
+  let searchTerm = ""
 	let taskTitles = []
 
 	// finalTasks is an object containing the final, sorted, version of the tasklist.
- 	let finalTasks = {tasks: [], dummy: {"title": "Task", "taskList": []}}
+  let finalTasks = {tasks: [], dummy: {"title": "Task", "taskList": []}}
 	let dummyData = {
 		"client": "FDND",
 		"semesterName": $tasks.filter(task => task.semester === semester)[0].semesterName,
@@ -26,8 +26,9 @@
 		"url": "https://github.com/fdnd-task/fdnd-net-presence-example"
 	}
 	
+	
     // Filter the list of tasks based on the given sprint. 
-  	const filter = (value, list) => filterBySprint(value, list)
+  const filter = (value, list) => filterBySprint(value, list)
 	
 	function filterBySprint(value, taskList) {
 		// Filter all semester tasks based on the current sprint name.

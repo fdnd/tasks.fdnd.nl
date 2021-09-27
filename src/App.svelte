@@ -4,36 +4,37 @@
 	import { addDifficulty } from './helpers/utils/addDifficulty.js'
   	import { getSemesterTitles } from "./helpers/utils/getSemesterTitles.js"
   
-	import Semester from './components/Semester.svelte'	
-	import { tasks, semesters, semester } from './stores/tasks.js'
+	import FilterSemester from "./components/FilterSemester.svelte"	
+	import { tasks } from './stores/tasks.js';
 	
 
-	let tasksJSON = [] // Original copy of the data.
+	let taskList = [] // Original copy of the data.
 	let searchTaskList = [] // Copy of the data to be used in the search
-	//let semesters = []
+	let semesters = []
   
 	/*When App.svelte mounts, this function to fetch the data will run.*/
 	onMount(async () => {
-		const tasksData = await fetch('data.json')
-		tasksJSON = await tasksData.json()
+		const dataResponse = await fetch('data.json')
+		taskList = await dataResponse.json()
 
 		// Add semester and sprint name to the task data list and put it in the search task list array.
-		searchTaskList = getSemesterSprintName(tasksJSON)
+		searchTaskList = getSemesterSprintName(taskList)
 
 		// A list of semester names to be displayed.
-		$semesters = getSemesterTitles(tasksJSON)
+		semesters = getSemesterTitles(taskList)
 
 		// Remove strings from semester array
-		$semesters = $semesters.filter(semester => {return typeof semester !== 'string'})
+		semesters = semesters.filter(semester => {return typeof semester !== 'string'})
 
 		// Sort semesters in numerical order
-		$semesters.sort((a, b) => a-b)
+		semesters.sort((a, b) => a-b)
 		
 		/*
 		Add difficulty property to the taskList
 		*/
-		$tasks = addDifficulty(searchTaskList)
-
+		const taskies = addDifficulty(searchTaskList)
+		
+		$tasks = taskies
 	})
 </script>
 
@@ -44,24 +45,10 @@
 
 <main>
 	<h2>Leertaken</h2>
-	{#each $semesters as semester}
-		<Semester />
-	{/each}
+	<FilterSemester bind:semesters />
 </main>
 
 <footer>
-	<nav>
-		<h2>FDND websites</h2>
-
-		<ul>
-			<li><a href="https://fdnd.nl">FDND.nl</a></li>
-			<li><a href="https://programma.fdnd.nl/">Programma</a></li>
-			<li><a href="https://partners.fdnd.nl">Partners</a></li>
-			<li><a href="https://tasks.fdnd.nl">Leertaken</a></li>
-			<li><a href="https://styleguide.fdnd.nl">Styleguide</a></li>
-		</ul>
-	</nav>
-
 	<img src="/assets/images/hvapayoff.svg" alt="Hogeschool van Amsterdam">
 
 </footer>
