@@ -99,6 +99,7 @@ Once everything the project is running, navigate to http://localhost:5000/ in yo
 - [Svelte docs](https://svelte.dev/tutorial/)
 - [FDND-task github page](https://github.com/fdnd-task)
 - [FDND](https://fdnd.nl/)
+- [GitHub GraphQL explorer](https://docs.github.com/en/graphql/overview/explorer)
 
 ## License
 
