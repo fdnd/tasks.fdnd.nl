@@ -65,7 +65,7 @@
 		
 		let counter = stacks.length
 		// Add dummydata until the total amount of tasks in a group is 12.
-		while(counter < 12) {
+		while(counter < 3) {
 			counter++
 			finalTasks.dummy.taskList.push(dummyData)
 		}
