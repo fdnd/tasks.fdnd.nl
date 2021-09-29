@@ -21,11 +21,11 @@
 		<div id="stack" on:click|preventDefault={()=>{
 			selection = group.taskList;
 			isActive = true
-			if(selection.length == 2) {
-				gridTemplate = "grid-template-columns: 1fr 1fr;"
-			} else if (selection.length >= 3){
-				gridTemplate = "grid-template-columns: 1fr 1fr 1fr;"
-			}
+			// if(selection.length == 2) {
+			// 	gridTemplate = "grid-template-columns: 1fr"
+			// } else if (selection.length >= 3){
+			// 	gridTemplate = "grid-template-columns: 1fr"
+			// }
 
 			// Card shuffle
 

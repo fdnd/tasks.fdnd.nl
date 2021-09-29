@@ -67,7 +67,7 @@
             <em>{supportLevels[task["support-level"] -1]}</em>
         </p>
         <ul>
-            <li>
+            <!-- <li>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checkbox" viewBox="0 0 24 24">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -75,9 +75,9 @@
                         <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
                     </svg>
                 </button>
-            </li>
-            <li>
-                <button>
+            </li> -->
+            <li class="forks">
+                <button data-forks="{task.forkCount}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-git-fork" viewBox="0 0 24 24">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <circle cx="12" cy="18" r="2" />
@@ -86,9 +86,10 @@
                         <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" />
                         <line x1="12" y1="12" x2="12" y2="16" />
                         </svg>
+
                 </button>
             </li>
-            <li>
+            <!-- <li>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag"  viewBox="0 0 24 24">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -96,7 +97,7 @@
                         <circle cx="9" cy="9" r="2" />
                     </svg>
                 </button>
-            </li>
+            </li> -->
         </ul>
         <!--Tags component, with a copy of the taglist data.-->
         <Tags bind:task/>
@@ -128,9 +129,7 @@
     article:hover {
         transform: scale(1.025);
     }
-    /* article.stack {
-
-    } */
+    /* article.stack */
     article.task {
         filter:grayscale(1) brightness(2.5);
         opacity:.2;
@@ -155,6 +154,7 @@
     
     h4 {
         font-size: 1.25em;
+        font-size: clamp(1rem, -0.875rem + 2vw, 3.5rem);
         color: var(--secondary);
         margin-top: 0;
         margin-bottom: .5rem;
@@ -162,6 +162,7 @@
     p {
         margin: 0;
         color: inherit;
+        white-space: nowrap;
     }
     div {
         width:100%;
@@ -203,7 +204,12 @@
         background-color: transparent;
         border:none;
         padding:0;
-        margin:0
+        margin:0;
+        white-space: nowrap;
+    }
+    footer li.forks button:after {
+        content:attr(data-forks);
+        font-size: 0.8rem;
     }
     footer svg.task-level {
         stroke-width: 3;
