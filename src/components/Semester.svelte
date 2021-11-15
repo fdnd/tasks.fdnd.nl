@@ -35,7 +35,7 @@
 			padding:1rem 1rem 0;
             border-radius: var(--radius);
             margin:5rem 0 1rem;
-            max-width:60em;
+            max-width:80em;
 		}
         h2 {
             padding:1rem;
