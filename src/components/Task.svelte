@@ -158,6 +158,7 @@
         color: var(--secondary);
         margin-top: 0;
         margin-bottom: .5rem;
+        white-space:nowrap;
     }
     p {
         margin: 0;
