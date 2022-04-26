@@ -21,8 +21,6 @@
 			return !task.topics.includes('subtask') 
 		})
 
-		console.log(mainTasks)
-
 		// Add semester and sprint name to the task data list and put it in the search task list array.
 		searchTaskList = getSemesterSprintName(mainTasks)
 
@@ -42,6 +40,7 @@
 		
 		$tasks = taskies
 	})
+
 </script>
 
 <header>
