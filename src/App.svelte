@@ -17,11 +17,17 @@
 		const dataResponse = await fetch('data.json')
 		taskList = await dataResponse.json()
 
+		const mainTasks = taskList.filter(task => {
+			return !task.topics.includes('subtask') 
+		})
+
+		console.log(mainTasks)
+
 		// Add semester and sprint name to the task data list and put it in the search task list array.
-		searchTaskList = getSemesterSprintName(taskList)
+		searchTaskList = getSemesterSprintName(mainTasks)
 
 		// A list of semester names to be displayed.
-		semesters = getSemesterTitles(taskList)
+		semesters = getSemesterTitles(mainTasks)
 
 		// Remove strings from semester array
 		semesters = semesters.filter(semester => {return typeof semester !== 'string'})
@@ -50,7 +56,6 @@
 
 <footer>
 	<img src="/assets/images/hvapayoff.svg" alt="Hogeschool van Amsterdam">
-
 </footer>
 
 <style>

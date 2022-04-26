@@ -24,7 +24,7 @@ graphqlWithAuth(`{
             text
           }
         }
-        repositoryTopics(first: 20) {
+        repositoryTopics(first: 100) {
           edges {
             node {
               topic {
@@ -40,7 +40,6 @@ graphqlWithAuth(`{
 }`)
   .then(result => {
     result.organization.repositories.nodes.map(task => {
-      console.log(task.name)
       taskList.push({
         ...fm(task.description.text).attributes,
         repository: task.name,
