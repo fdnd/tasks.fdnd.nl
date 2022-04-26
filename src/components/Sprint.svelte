@@ -11,13 +11,7 @@
 		return sprint.sprint.replace(/ /g, "-").toLowerCase()
 	}
 
-	function routeChange() {
-		page = routingMap[location.hash] || NotFound;
-	}
-
 </script>
-
-<svelte:window on:hashchange={routeChange} />
 
 <section class:active={ isActive } id="{ hash() }">
 	<a href="/#{ hash() }" on:click|preventDefault={ () => isActive = !isActive }>
